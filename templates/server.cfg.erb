@@ -1,5 +1,5 @@
-main_collective = mcollective
-collectives = mcollective
+main_collective = <%= @main_collective %>
+collectives = <%= @collectives.join(',') %>
 libdir = <%= @libdir %>
 logfile = /var/log/mcollective.log
 loglevel = info

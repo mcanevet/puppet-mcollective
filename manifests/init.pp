@@ -150,6 +150,8 @@ class mcollective (
   $node_ensure_service = running,
   $node_identity = $mcollective::params::node_identity,
   $default_discovery_method = $mcollective::params::default_discovery_method,
+  $collectives = ['mcollective'],
+  $main_collective = 'mcollective',
 ) inherits ::mcollective::params {
 
   anchor { 'mcollective::begin': } ->
