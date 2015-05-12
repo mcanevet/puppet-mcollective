@@ -1,5 +1,5 @@
-main_collective = <%= @main_collective %>
-collectives = <%= @collectives.join(',') %>
+main_collective = <%= scope.lookupvar('mcollective::node::main_collective') %>
+collectives = <%= scope.lookupvar('mcollective::node::collectives').join(',') %>
 libdir = <%= @libdir %>
 logfile = /var/log/mcollective.log
 loglevel = info
