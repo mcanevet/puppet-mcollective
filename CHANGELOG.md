@@ -1,3 +1,7 @@
+## 2015-05-25 - Release 3.0.1
+
+Don't allow failure on Puppet 4
+
 ## 2015-05-25 - Release 3.0.0
 
 - actionpolicy: Prepend rule_ to actions, facts and classes variables (BREAKING CHANGE)
