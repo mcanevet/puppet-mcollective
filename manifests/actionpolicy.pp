@@ -20,11 +20,11 @@
 #                        parsed as '$rpccaller@$agent'.
 #   ['auth']           - Auth rule ('allow' or 'deny').
 #                        Defaults is 'allow'.
-#   ['actions']        - The array of actions managed by this rule.
+#   ['rule_actions']   - The array of actions managed by this rule.
 #                        Defaults to ['*'].
-#   ['facts']          - An array of facts for which this rule applies.
+#   ['rule_facts']     - An array of facts for which this rule applies.
 #                        Defaults to ['*'].
-#   ['classes']        - An array of classes for which this rule applies.
+#   ['rule_classes']   - An array of classes for which this rule applies.
 #                        Defaults to ['*'].
 #   ['order']          - Order for concatenation.
 #                        Defaults to 50.
@@ -56,9 +56,9 @@ define mcollective::actionpolicy (
   $agent = undef,
   $rpccaller = undef,
   $auth = 'allow',
-  $actions = ['*'],
-  $facts = ['*'],
-  $classes = ['*'],
+  $rule_actions = ['*'],
+  $rule_facts = ['*'],
+  $rule_classes = ['*'],
   $order = '50',
 ) {
   $_rpccaller = $rpccaller ? {
@@ -94,9 +94,9 @@ define mcollective::actionpolicy (
     "\$policies_dir must be a valid path, got '${policies_dir}'")
   validate_re($auth, '^(allow|deny)$',
     "\$auth must be either 'allow' or 'deny', got '${auth}'")
-  validate_array($actions)
-  validate_array($facts)
-  validate_array($classes)
+  validate_array($rule_actions)
+  validate_array($rule_facts)
+  validate_array($rule_classes)
 
   $fragment_title    = regsubst($name, '/', '_', 'G')
   concat::fragment { "mcollective.actionpolicy.${fragment_title}":

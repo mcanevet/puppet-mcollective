@@ -86,7 +86,7 @@ describe 'mcollective::actionpolicy' do
 
       context 'when actions is not an array' do
         let (:params) { {
-          :actions => 'myaction'
+          :rule_actions => 'myaction'
         } }
 
         it 'should fail' do
@@ -97,7 +97,7 @@ describe 'mcollective::actionpolicy' do
 
       context 'when facts is not an array' do
         let (:params) { {
-          :facts => 'myfact'
+          :rule_facts => 'myfact'
         } }
 
         it 'should fail' do
@@ -108,7 +108,7 @@ describe 'mcollective::actionpolicy' do
 
       context 'when classes is not an array' do
         let (:params) { {
-          :classes => 'myclass'
+          :rule_classes => 'myclass'
         } }
 
         it 'should fail' do
@@ -129,13 +129,13 @@ describe 'mcollective::actionpolicy' do
       context 'when overriding parameters' do
         let (:title) { 'My beautiful action policy' }
         let (:params) { {
-          :agent     => 'foo',
-          :rpccaller => 'uid=1001',
-          :auth      => 'deny',
-          :actions   => ['status', 'restart'],
-          :facts     => ['operatingsystem="Debian"'],
-          :classes   => ['mysite::myclass', 'mysite::myotherclass'],
-          :order     => '99'
+          :agent        => 'foo',
+          :rpccaller    => 'uid=1001',
+          :auth         => 'deny',
+          :rule_actions => ['status', 'restart'],
+          :rule_facts   => ['operatingsystem="Debian"'],
+          :rule_classes => ['mysite::myclass', 'mysite::myotherclass'],
+          :order        => '99'
         } }
         it { should contain_concat__fragment('mcollective.actionpolicy.My beautiful action policy').with(
           :ensure  => :present,
