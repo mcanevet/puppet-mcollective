@@ -1,3 +1,7 @@
+## 2015-05-25 - Release 3.0.0
+
+- actionpolicy: Prepend rule_ to actions, facts and classes variables (BREAKING CHANGE)
+
 ## 2015-05-25 - Release 2.1.0
 
 Add collectives and main_collective parameters.
