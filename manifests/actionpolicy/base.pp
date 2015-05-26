@@ -38,6 +38,8 @@ define mcollective::actionpolicy::base (
     fail('You must declare the mcollective::node class before you can use mcollective::actionpolicy::base')
   }
 
+  Class['mcollective::node'] -> Mcollective::Actionpolicy::Base[$title]
+
   # Validate parameters
   validate_re($ensure, '^(present|absent)$',
     "\$ensure must be either 'present' or 'absent', got '${ensure}'")
